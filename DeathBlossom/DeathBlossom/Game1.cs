@@ -18,13 +18,12 @@ namespace DeathBlossom
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        //Initialize the stuff for the ship and missles
         Texture2D spaceTex, missileTex;
         Rectangle screenRect;
         Rectangle gunstarRect;
         Gunstar ship;
         KeyboardState oldKB;
-        int numOfMisslesFired = 0;
-
         List<Missile> missileList;
 
         public Game1()
@@ -78,21 +77,6 @@ namespace DeathBlossom
             // TODO: use this.Content to load your game content here
 
         }
-
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
-        protected override void UnloadContent()
-        {
-            // TODO: Unload any non ContentManager content here
-        }
-
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         bool shoot = true;
         protected override void Update(GameTime gameTime)
         {
@@ -147,12 +131,12 @@ namespace DeathBlossom
             spriteBatch.Draw(spaceTex, screenRect, Color.White);
             
             // TODO: Add your drawing code here
-            //FFor each missle draw it
+            //For each missle draw it
             foreach (Missile m in missileList)
             {
                 m.Draw(spriteBatch, gameTime);
             }
-            //Then draw the shi[
+            //Then draw the ship
             ship.Draw(spriteBatch, gameTime);
 
             spriteBatch.End();
